@@ -49,7 +49,9 @@ class ListViewController: UIViewController {
         
         setupData()
         tableView.reloadData()
-        tableView.scrollToBottom()
+        if notesArray.count > 0 {
+            tableView.scrollToBottom()
+        }
     }
     
     override func didReceiveMemoryWarning() {

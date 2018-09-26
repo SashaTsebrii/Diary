@@ -12,7 +12,7 @@ class CreateViewController: UIViewController {
     
     // MARK: - Outlet
     
-    @IBOutlet weak var textView: UITextView! {
+    @IBOutlet weak var textView: CreateTextView! {
         didSet {
             textView.delegate = self
         }

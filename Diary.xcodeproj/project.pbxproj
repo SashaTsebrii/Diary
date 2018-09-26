@@ -12,6 +12,7 @@
 		47081840214A973C00B213A2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4708183F214A973C00B213A2 /* Extension.swift */; };
 		471348DA2131BEF700C10F6F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471348D92131BEF700C10F6F /* ListViewController.swift */; };
 		47192B55215927D400C24E72 /* Diary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 47192B53215927D400C24E72 /* Diary.xcdatamodeld */; };
+		478A5723215BF905005E4028 /* CreateTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478A5722215BF905005E4028 /* CreateTextView.swift */; };
 		47B9B579210CDBE3004E0F32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B9B578210CDBE3004E0F32 /* AppDelegate.swift */; };
 		47B9B57E210CDBE3004E0F32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47B9B57C210CDBE3004E0F32 /* Main.storyboard */; };
 		47B9B580210CDBE3004E0F32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B9B57F210CDBE3004E0F32 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		4708183F214A973C00B213A2 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		471348D92131BEF700C10F6F /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		47192B54215927D400C24E72 /* Diary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Diary.xcdatamodel; sourceTree = "<group>"; };
+		478A5722215BF905005E4028 /* CreateTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTextView.swift; sourceTree = "<group>"; };
 		47B9B575210CDBE3004E0F32 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B9B578210CDBE3004E0F32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47B9B57D210CDBE3004E0F32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				471348D92131BEF700C10F6F /* ListViewController.swift */,
 				4708183D214A89A500B213A2 /* ListTableViewCell.swift */,
 				4708183B214A86B500B213A2 /* CreateViewController.swift */,
+				478A5722215BF905005E4028 /* CreateTextView.swift */,
 				47B9B57C210CDBE3004E0F32 /* Main.storyboard */,
 				47B9B57F210CDBE3004E0F32 /* Assets.xcassets */,
 				47B9B581210CDBE3004E0F32 /* LaunchScreen.storyboard */,
@@ -154,6 +157,7 @@
 				47192B55215927D400C24E72 /* Diary.xcdatamodeld in Sources */,
 				4708183C214A86B500B213A2 /* CreateViewController.swift in Sources */,
 				47B9B579210CDBE3004E0F32 /* AppDelegate.swift in Sources */,
+				478A5723215BF905005E4028 /* CreateTextView.swift in Sources */,
 				47B9B58B210CE0AB004E0F32 /* Constant.swift in Sources */,
 				47081840214A973C00B213A2 /* Extension.swift in Sources */,
 				471348DA2131BEF700C10F6F /* ListViewController.swift in Sources */,
