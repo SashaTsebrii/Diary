@@ -9,10 +9,9 @@
 import UIKit
 import CoreData
 
-// MARK: -
 class ListViewController: UIViewController {
     
-    // MARK: - Outlet
+    // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -30,7 +29,7 @@ class ListViewController: UIViewController {
         }
     }
     
-    // MARK: - Variable
+    // MARK: - Properties
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -57,7 +56,6 @@ class ListViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,7 +66,6 @@ class ListViewController: UIViewController {
     
 }
 
-// MARK: -
 extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - UITableViewDataSource
@@ -127,16 +124,15 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
-// MARK: - UITextFieldDelegate
-
 extension ListViewController: UITextFieldDelegate {
+    
+    // MARK: - UITextFieldDelegate
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         performSegue(withIdentifier: Constant.SegueIdentifier.showCreateFromList, sender: nil)
         return true
     }
 }
-
-// MARK: -
 
 extension ListViewController {
     
