@@ -12,7 +12,7 @@ class CreateViewController: UIViewController {
     
     // MARK: - Outlet
     
-    @IBOutlet weak var textView: VerticallyCenteredTextView! {
+    @IBOutlet weak var textView: UITextView! {
         didSet {
             textView.delegate = self
         }
@@ -40,15 +40,19 @@ class CreateViewController: UIViewController {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillShow),
                                                name: UIResponder.keyboardWillShowNotification,
-                                               object: nil
-        )
+                                               object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         textView.becomeFirstResponder()
-        textView.text = ""
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        textView.centerVertically()
     }
     
     override func didReceiveMemoryWarning() {
