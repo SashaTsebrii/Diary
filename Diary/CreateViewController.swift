@@ -8,7 +8,6 @@
 
 import UIKit
 
-// MARK: -
 class CreateViewController: UIViewController {
     
     // MARK: - Outlet
@@ -24,7 +23,6 @@ class CreateViewController: UIViewController {
             saveButton.isEnabled = false
         }
     }
-    
     
     @IBOutlet weak var bottomTextViewConstraint: NSLayoutConstraint!
     
@@ -86,7 +84,6 @@ class CreateViewController: UIViewController {
     
 }
 
-// MARK: -
 extension CreateViewController: UITextViewDelegate {
     
     // MARK: - UITextViewDelegate

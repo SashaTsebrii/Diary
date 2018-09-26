@@ -8,10 +8,20 @@
 
 import UIKit
 
-// MARK: -
 class ListTableViewCell: UITableViewCell {
     
-    // MARK: - Property
+    // MARK: - Outlets
+    
+    @IBOutlet weak var cellView: UIView! {
+        didSet {
+            cellView.layer.cornerRadius = 8
+            cellView.layer.masksToBounds = true
+        }
+    }
+    
+    @IBOutlet weak var cellLabel: UILabel!
+    
+    // MARK: - Propertids
     
     var note: NoteData? {
         didSet {
@@ -20,16 +30,6 @@ class ListTableViewCell: UITableViewCell {
             }
         }
     }
-    
-    // MARK: - Outlet
-    
-    @IBOutlet weak var cellView: UIView! {
-        didSet {
-            cellView.layer.cornerRadius = 8
-            cellView.layer.masksToBounds = true
-        }
-    }
-    @IBOutlet weak var cellLabel: UILabel!
     
     // MARK: - Lifecycle
     

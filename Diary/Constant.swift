@@ -10,9 +10,13 @@ import UIKit
 
 struct Constant {
     
+    // MARK: -
+    
     struct SegueIdentifier {
         static let showCreateFromList = "showCreateFromList"
     }
+    
+    // MARK: -
     
     struct CellIdentifier {
         static let listTableViewCell = "listTableViewCell"
