@@ -19,13 +19,20 @@ class CreateViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var saveBarButton: UIBarButtonItem! {
+    @IBOutlet weak var saveButton: UIButton! {
         didSet {
-            saveBarButton.isEnabled = false
+            saveButton.isEnabled = false
         }
     }
     
+    
     @IBOutlet weak var bottomTextViewConstraint: NSLayoutConstraint!
+    
+    // MARK: - Properties
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     // MARK: - Lifecycle
     
@@ -53,14 +60,15 @@ class CreateViewController: UIViewController {
     
     // MARK: - Action
     
-    @IBAction func tapSaveBarButton(_ sender: UIBarButtonItem) {
+    @IBAction func tapCloseButton(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func tapSaveButton(_ sender: UIButton) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
         let note = NoteData(context: context)
         note.date = Date()
-        
         note.text = textView.text
-        
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         navigationController?.popViewController(animated: true)
@@ -85,9 +93,9 @@ extension CreateViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         if textView.text.count > 10 {
-            saveBarButton.isEnabled = true
+            saveButton.isEnabled = true
         } else {
-            saveBarButton.isEnabled = false
+            saveButton.isEnabled = false
         }
     }
 }

@@ -18,10 +18,23 @@ class ListViewController: UIViewController {
         didSet {
             tableView.dataSource = self
             tableView.delegate = self
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 68, right: 0)
+        }
+    }
+    
+    @IBOutlet weak var textField: UITextField! {
+        didSet {
+            textField.delegate = self
+            textField.layer.cornerRadius = 8
+            textField.layer.masksToBounds = true
         }
     }
     
     // MARK: - Variable
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     var notesArray: [[NoteData]] = []
     
@@ -36,7 +49,8 @@ class ListViewController: UIViewController {
         super.viewWillAppear(animated)
         
         setupData()
-        tableView.reloadData()        
+        tableView.reloadData()
+        tableView.scrollToBottom()
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,12 +64,6 @@ class ListViewController: UIViewController {
         if segue.identifier == Constant.SegueIdentifier.showCreateFromList {
             
         }
-    }
-    
-    // MARK: - Action
-    
-    @IBAction func tapCreateButton(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: Constant.SegueIdentifier.showCreateFromList, sender: nil)
     }
     
 }
@@ -119,6 +127,15 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
+// MARK: - UITextFieldDelegate
+
+extension ListViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        performSegue(withIdentifier: Constant.SegueIdentifier.showCreateFromList, sender: nil)
+        return true
+    }
+}
+
 // MARK: -
 
 extension ListViewController {
@@ -133,7 +150,7 @@ extension ListViewController {
             let notes = try context.fetch(NoteData.fetchRequest())
             let notesByDate = Dictionary(grouping: notes as! [NoteData], by: { $0.date!.stripTime() })
             for (_, value) in notesByDate {
-                notesArray.append(value)
+                notesArray.insert(value, at: notesArray.count)
             }
         }
         catch {

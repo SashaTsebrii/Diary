@@ -8,7 +8,7 @@
 
 import UIKit
 
-// MARK: - String
+// MARK: -
 
 extension String {
     func sringFrom(date: Date) -> String {
@@ -19,12 +19,32 @@ extension String {
     }
 }
 
-// MARK: - Date
+// MARK: -
 
 extension Date {
     func stripTime() -> Date {
         let components = Calendar.current.dateComponents([.year, .month, .day], from: self)
         let date = Calendar.current.date(from: components)
         return date!
+    }
+}
+
+// MARK: -
+
+extension UITableView {
+    func scrollToBottom(){
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(
+                row: self.numberOfRows(inSection:  self.numberOfSections - 1) - 1,
+                section: self.numberOfSections - 1)
+            self.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
+    
+    func scrollToTop() {
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.scrollToRow(at: indexPath, at: .top, animated: false)
+        }
     }
 }

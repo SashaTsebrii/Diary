@@ -13,9 +13,8 @@
         <!--Navigation Controller-->
         <scene sceneID="7ci-u6-Fpj">
             <objects>
-                <navigationController id="mPL-wC-IIF" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="mPL-wC-IIF" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dal-4m-S25">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -26,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-814" y="72"/>
         </scene>
-        <!--List-->
+        <!--List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ListViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dly-lE-Ads">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,25 +80,33 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Today I..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gu7-aV-8Wd">
+                                <rect key="frame" x="16" y="603" width="343" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="wiz-Ij-15u"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dly-lE-Ads" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0WQ-W7-Yz9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dly-lE-Ads" secondAttribute="bottom" id="8xK-P0-FPR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gu7-aV-8Wd" secondAttribute="trailing" constant="16" id="KFc-Uk-MJR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gu7-aV-8Wd" secondAttribute="bottom" constant="20" id="MoO-Uu-NLw"/>
+                            <constraint firstItem="gu7-aV-8Wd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="obQ-Ba-sfn"/>
                             <constraint firstItem="dly-lE-Ads" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sey-sk-rny"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dly-lE-Ads" secondAttribute="trailing" id="usy-bB-LRa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="List" id="hSC-it-7BA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YJj-rf-uXw">
-                            <connections>
-                                <action selector="tapCreateButton:" destination="BYZ-38-t0r" id="3SC-om-jxX"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="hSC-it-7BA"/>
                     <connections>
                         <outlet property="tableView" destination="dly-lE-Ads" id="H3T-Jp-abD"/>
+                        <outlet property="textField" destination="gu7-aV-8Wd" id="0Uo-Gz-RsU"/>
                         <segue destination="KSC-uJ-qff" kind="show" identifier="showCreateFromList" id="9Zb-j1-PuH"/>
                     </connections>
                 </viewController>
@@ -107,7 +114,7 @@
             </objects>
             <point key="canvasLocation" x="63.200000000000003" y="71.514242878560722"/>
         </scene>
-        <!--Create-->
+        <!--Create View Controller-->
         <scene sceneID="8PP-MY-6MT">
             <objects>
                 <viewController id="KSC-uJ-qff" customClass="CreateViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
@@ -116,31 +123,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSH-6y-6rv" customClass="VerticallyCenteredTextView" customModule="Diary" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shD-Em-I86">
+                                <rect key="frame" x="8" y="28" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="shD-Em-I86" secondAttribute="height" multiplier="1:1" id="gxz-nF-thO"/>
+                                    <constraint firstAttribute="height" constant="44" id="pfz-AI-giI"/>
+                                    <constraint firstAttribute="width" constant="44" id="tc5-eK-euy"/>
+                                </constraints>
+                                <state key="normal" image="Close"/>
+                                <connections>
+                                    <action selector="tapCloseButton:" destination="KSC-uJ-qff" eventType="touchUpInside" id="X8a-4w-6yA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9z-Bk-Hxa">
+                                <rect key="frame" x="323" y="629" width="44" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5gU-aB-rWZ"/>
+                                    <constraint firstAttribute="width" secondItem="P9z-Bk-Hxa" secondAttribute="height" multiplier="22:15" id="d90-tb-znD"/>
+                                    <constraint firstAttribute="width" constant="44" id="nuE-qI-ghI"/>
+                                </constraints>
+                                <state key="normal" title="SAVE">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapSaveButton:" destination="KSC-uJ-qff" eventType="touchUpInside" id="vaL-id-HKy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="d50-eu-fBf" firstAttribute="trailing" secondItem="bSH-6y-6rv" secondAttribute="trailing" id="1Xw-Mg-5w6"/>
+                            <constraint firstItem="P9z-Bk-Hxa" firstAttribute="bottom" secondItem="bSH-6y-6rv" secondAttribute="bottom" constant="-8" id="2zA-6U-b43"/>
                             <constraint firstItem="bSH-6y-6rv" firstAttribute="top" secondItem="d50-eu-fBf" secondAttribute="top" id="4So-l9-kHK"/>
                             <constraint firstItem="d50-eu-fBf" firstAttribute="bottom" secondItem="bSH-6y-6rv" secondAttribute="bottom" id="PXi-3l-h6y"/>
+                            <constraint firstItem="shD-Em-I86" firstAttribute="leading" secondItem="bSH-6y-6rv" secondAttribute="leading" constant="8" id="UWB-X4-tl1"/>
+                            <constraint firstItem="shD-Em-I86" firstAttribute="top" secondItem="bSH-6y-6rv" secondAttribute="top" constant="8" id="VBc-bH-Pug"/>
                             <constraint firstItem="bSH-6y-6rv" firstAttribute="leading" secondItem="d50-eu-fBf" secondAttribute="leading" id="il4-UX-GI4"/>
+                            <constraint firstItem="P9z-Bk-Hxa" firstAttribute="trailing" secondItem="bSH-6y-6rv" secondAttribute="trailing" constant="-8" id="lb0-n3-PEe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d50-eu-fBf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create" id="Ten-um-FrD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ccx-DZ-ucc">
-                            <connections>
-                                <action selector="tapSaveBarButton:" destination="KSC-uJ-qff" id="ldV-Gs-fN1"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Ten-um-FrD"/>
                     <connections>
                         <outlet property="bottomTextViewConstraint" destination="PXi-3l-h6y" id="tD9-3r-7ht"/>
-                        <outlet property="saveBarButton" destination="ccx-DZ-ucc" id="4rG-dX-5Oj"/>
+                        <outlet property="saveButton" destination="P9z-Bk-Hxa" id="1vr-lY-Ta5"/>
                         <outlet property="textView" destination="bSH-6y-6rv" id="UrQ-Cr-R9u"/>
                     </connections>
                 </viewController>
@@ -149,4 +180,7 @@
             <point key="canvasLocation" x="984.79999999999995" y="71.514242878560722"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Close" width="50" height="50"/>
+    </resources>
 </document>
