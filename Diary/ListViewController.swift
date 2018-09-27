@@ -150,6 +150,7 @@ extension ListViewController {
             for (_, value) in notesByDate {
                 notesArray.insert(value, at: notesArray.count)
             }
+            // FIXME: sort by date and in every day by time
         }
         catch {
             print("Fetching failed")
