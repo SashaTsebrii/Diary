@@ -1,5 +1,5 @@
 //
-//  CreateTextView.swift
+//  InputTextView.swift
 //  Diary
 //
 //  Created by Aleksandr Tsebrii on 9/26/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateTextView: UITextView {
+class InputTextView: UITextView {
     
     override var contentSize: CGSize {
         didSet {

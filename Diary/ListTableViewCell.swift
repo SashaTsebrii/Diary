@@ -14,7 +14,7 @@ class ListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cellView: UIView! {
         didSet {
-            cellView.layer.cornerRadius = 8
+            cellView.layer.cornerRadius = 4
             cellView.layer.masksToBounds = true
         }
     }
