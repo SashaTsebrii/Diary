@@ -8,18 +8,43 @@
 
 import UIKit
 import CoreData
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    // MARK: - Properties
+    // MARK: Properties
     
     var window: UIWindow?
     
-    // MARK: - UIApplicationDelegate
+    // FIXME: Delete the comment below.
+//    var navigationController: UINavigationController?
+    
+    // MARK: UIApplicationDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // Global setup.
         UINavigationBar.appearance().tintColor = UIColor.black
+        
+        // Initialize google sign-in.
+        GIDSignIn.sharedInstance().clientID = "560260818064-j58gav8r63o82h639dijbq0vrdq0929l.apps.googleusercontent.com"
+        
+        // Check user is sign in or sign out.
+        Switcher.updateRootVC()
+        
+        // FIXME: Delete the comment below.
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//        let rootViewController = GIDSignIn.sharedInstance().hasAuthInKeychain() ?
+//            storyboard.instantiateViewController(withIdentifier: Constant.StoryboardIdentifier.listViewController) :
+//            storyboard.instantiateViewController(withIdentifier: Constant.StoryboardIdentifier.signInViewController)
+//        navigationController = MainNavigationController(rootViewController: rootViewController)
+//
+//        self.window?.rootViewController = navigationController
+//        self.window?.makeKeyAndVisible()
+        
         return true
     }
     
@@ -43,7 +68,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
     
-    // MARK: - CoreData stack
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url as URL?,
+                                                 sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+                                                 annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+    }
+    
+    // MARK: CoreData stack
     
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Diary")
@@ -55,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
     
-    // MARK: - CoreData saving support
+    // MARK: CoreData saving support
     
     func saveContext () {
         let context = persistentContainer.viewContext
@@ -70,3 +101,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 }
+
+// FIXME: Delete the comment below.
+//extension AppDelegate: GIDSignInDelegate {
+//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+//              withError error: Error!) {
+//        if let error = error {
+//            print("\(error.localizedDescription)")
+//        } else {
+//            // Perform any operations on signed in user here.
+//            /*
+//            let userId = user.userID                  // For client-side use only!
+//            let idToken = user.authentication.idToken // Safe to send to the server
+//            let fullName = user.profile.name
+//            let givenName = user.profile.givenName
+//            let familyName = user.profile.familyName
+//            let email = user.profile.email
+//            */
+//            // ...
+//        }
+//    }
+//    
+//    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
+//              withError error: Error!) {
+//        // Perform any operations when the user disconnects from app here.
+//        // ...
+//    }
+//}
