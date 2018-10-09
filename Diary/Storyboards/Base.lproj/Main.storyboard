@@ -174,9 +174,6 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSH-6y-6rv" customClass="InputTextView" customModule="Diary" customModuleProvider="target">
                                         <rect key="frame" x="8" y="0.0" width="359" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="KMz-sP-YnI"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -198,6 +195,7 @@
                                     <constraint firstItem="igD-b9-Krb" firstAttribute="trailing" secondItem="bSH-6y-6rv" secondAttribute="trailing" id="3zP-V0-cJA"/>
                                     <constraint firstItem="igD-b9-Krb" firstAttribute="top" secondItem="bSH-6y-6rv" secondAttribute="top" constant="8" id="Ta7-Hy-lsW"/>
                                     <constraint firstAttribute="height" constant="44" id="aUS-6e-GKE"/>
+                                    <constraint firstAttribute="bottom" secondItem="bSH-6y-6rv" secondAttribute="bottom" id="c1t-89-Ida"/>
                                     <constraint firstItem="bSH-6y-6rv" firstAttribute="top" secondItem="l63-89-sGZ" secondAttribute="top" id="iF6-Im-xD3"/>
                                     <constraint firstItem="bSH-6y-6rv" firstAttribute="leading" secondItem="l63-89-sGZ" secondAttribute="leading" constant="8" id="jhj-vK-Vwd"/>
                                     <constraint firstAttribute="trailing" secondItem="bSH-6y-6rv" secondAttribute="trailing" constant="8" id="vTS-rx-3Eg"/>

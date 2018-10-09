@@ -23,13 +23,6 @@ class Switcher {
         
         navigationController = MainNavigationController(rootViewController: rootViewController)
         
-        // FIXME: Delete the comment below.
-//        if status == true {
-//            rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabbarvc") as! TabBarVC
-//        } else {
-//            rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginvc") as! LoginVC
-//        }
-        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = navigationController
         

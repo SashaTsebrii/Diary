@@ -85,6 +85,10 @@ class ListViewController: UIViewController {
         setupData()
     }
     
+    override func viewDidLayoutSubviews() {
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -127,7 +131,6 @@ class ListViewController: UIViewController {
         } else {
             heightConstraint.constant = 44
         }
-        updateViewConstraints()
     }
     
     @IBAction func tapSeveButton(_ sender: UIButton) {
@@ -180,17 +183,6 @@ class ListViewController: UIViewController {
             }
         }
     }
-    
-    // FIXME: Fix method logic.
-//    private func isEnableSaveButton(isEnable: Bool) {
-//        if isEnable {
-//            saveButton.isEnabled = true
-//            saveButton.backgroundColor = UIColor.DesignColor.orange
-//        } else {
-//            saveButton.isEnabled = false
-//            saveButton.backgroundColor = UIColor.lightGray
-//        }
-//    }
     
     private func isEnableResizeButton(isEnable: Bool) {
         if isEnable {
@@ -275,16 +267,12 @@ extension ListViewController: UITextViewDelegate {
     // MARK: UITextViewDelegate
     
     func textViewDidChange(_ textView: UITextView) {
-        if textView.text.count > 10 {
-//            isEnableSaveButton(isEnable: true)
-        } else {
-//            isEnableSaveButton(isEnable: false)
-        }
+        
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         // Combine the textView text and the replacement text to create the updated text string
-        let currentText:String = textView.text
+        let currentText: String = textView.text
         let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
         // If updated text view will be empty, add the placeholder and set the cursor to the beginning of the text view
         if updatedText.isEmpty {
@@ -324,23 +312,31 @@ extension ListViewController: KeyboardToolbarDelegate {
     func keyboardToolbar(button: UIBarButtonItem, type: KeyboardToolbarButton, tappedIn toolbar: KeyboardToolbar) {
         print("Tapped button type: \(type)")
         if type == .save {
-            let note = NoteData(context: context)
-            note.date = Date()
-            note.text = inputTextView.text
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            
-            setupData()
-            
-            inputTextView.text.removeAll()
-            
-            // FIXME: Fix save button logic.
-//            isEnableSaveButton(isEnable: false)
-            
-            // FIXME: Resize input text view first, and then hide keyboard.
-//          if inputTextView.isFirstResponder {
-//              inputTextView.resignFirstResponder()
-//          }
-            
+            if inputTextView.text.count > 10 {
+                let note = NoteData(context: context)
+                note.date = Date()
+                note.text = inputTextView.text
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                
+                setupData()
+                
+                inputTextView.text.removeAll()
+            } else {
+                let alert = UIAlertController(title: "Too short!", message: "Please, enter more characters.", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    switch action.style{
+                    case .default:
+                        print("default")
+                        
+                    case .cancel:
+                        print("cancel")
+                        
+                    case .destructive:
+                        print("destructive")
+                        
+                    }}))
+                self.present(alert, animated: true, completion: nil)
+            }
         } else if type == .cancel {
             if inputTextView.isFirstResponder {
                 inputTextView.resignFirstResponder()
