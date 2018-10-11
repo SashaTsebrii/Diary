@@ -176,7 +176,6 @@ class ListViewController: UIViewController {
             for (_, value) in notesByDate {
                 self.notesArray.insert(value, at: notesArray.count)
             }
-            // FIXME: Fix sorting note in array.
             self.tableView.reloadData()
         }
         catch {
@@ -249,11 +248,11 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CellIdentifier.listTableViewCell, for: indexPath) as! ListTableViewCell
+        cell.isFirst = indexPath.row == 0 ? true : false
         if notesArray.count > 0 {
             let notes = notesArray[indexPath.section]
             let note = notes[indexPath.row]
             cell.note = note
-            cell.isFirst = indexPath.row == 0 ? true : false
         }
         return cell
     }
