@@ -20,6 +20,7 @@ struct Constant {
     // MARK: -
     struct SegueIdentifier {
         static let showReadFromList = "showReadFromList"
+        static let showSettingsFromList = "showSettingsFromList"
     }
     
     // MARK: -

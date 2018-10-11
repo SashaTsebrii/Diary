@@ -13,6 +13,16 @@ class ListViewController: UIViewController {
     
     // MARK: Outlets
     
+    @IBOutlet weak var maskView: UIView! {
+        didSet {
+            let gradient = CAGradientLayer()
+            gradient.frame = maskView.bounds
+            gradient.colors = [UIColor.clear.cgColor, UIColor.clear.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.white.cgColor]
+            gradient.locations = [0, 0.08, 0.12, 0.9, 1]
+            maskView.layer.mask = gradient
+        }
+    }
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -29,7 +39,7 @@ class ListViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var resizeButton: UIButton! {
+    @IBOutlet weak var resizeButton: ResizeButton! {
         didSet {
             isEnableResizeButton(isEnable: false)
         }
@@ -55,6 +65,21 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Add setting button.
+        let settingsButton = UIButton()
+        settingsButton.translatesAutoresizingMaskIntoConstraints = false
+        settingsButton.backgroundColor = UIColor.clear
+        settingsButton.setImage(UIImage(named: "Settings"), for: .normal)
+        settingsButton.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        settingsButton.imageView?.contentMode = .scaleAspectFit
+        settingsButton.addTarget(self, action: #selector(tapSettingsButton), for: .touchUpInside)
+        self.view.addSubview(settingsButton)
+        NSLayoutConstraint(item: settingsButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 30.0).isActive = true
+        NSLayoutConstraint(item: settingsButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 30.0).isActive = true
+        NSLayoutConstraint(item: settingsButton, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -16.0).isActive = true
+        NSLayoutConstraint(item: settingsButton, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 20.0).isActive = true
+        
+        // Set placeholder.
         inputTextView.text = "Today I..."
         inputTextView.textColor = UIColor.lightGray
         inputTextView.selectedTextRange = inputTextView.textRange(from: inputTextView.beginningOfDocument, to: inputTextView.beginningOfDocument)
@@ -85,10 +110,6 @@ class ListViewController: UIViewController {
         setupData()
     }
     
-    override func viewDidLayoutSubviews() {
-        
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -101,10 +122,16 @@ class ListViewController: UIViewController {
             if let readViewController = segue.destination as? ReadViewController {
                 readViewController.note = sender as? NoteData
             }
+        } else if segue.identifier == Constant.SegueIdentifier.showSettingsFromList {
+            
         }
     }
     
     // MARK: Selector
+    
+    @objc func tapSettingsButton(_ sender: UIButton!) {
+        performSegue(withIdentifier: Constant.SegueIdentifier.showSettingsFromList, sender: nil)
+    }
     
     @objc func keyboardWillShow(_ notification: Notification) {
         adjustingHeight(true, notification: notification)
@@ -255,7 +282,7 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 16
+        return 8
     }
     
 }
@@ -267,7 +294,11 @@ extension ListViewController: UITextViewDelegate {
     // MARK: UITextViewDelegate
     
     func textViewDidChange(_ textView: UITextView) {
-        
+        if textView.text.count > 10 {
+            
+        } else {
+            
+        }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -322,20 +353,7 @@ extension ListViewController: KeyboardToolbarDelegate {
                 
                 inputTextView.text.removeAll()
             } else {
-                let alert = UIAlertController(title: "Too short!", message: "Please, enter more characters.", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                    switch action.style{
-                    case .default:
-                        print("default")
-                        
-                    case .cancel:
-                        print("cancel")
-                        
-                    case .destructive:
-                        print("destructive")
-                        
-                    }}))
-                self.present(alert, animated: true, completion: nil)
+                
             }
         } else if type == .cancel {
             if inputTextView.isFirstResponder {

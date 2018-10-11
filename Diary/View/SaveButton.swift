@@ -10,7 +10,7 @@ import UIKit
 
 class SaveButton: UIButton {
     
-    // MARK: - Initialization
+    // MARK: Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
