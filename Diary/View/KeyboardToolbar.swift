@@ -18,9 +18,9 @@ enum KeyboardToolbarButton: Int {
         
         switch self {
         case .save:
-            let button = SaveButton(type: .custom)
+            let button = SaveButton()
             button.addTarget(target, action: action!, for: .touchUpInside)
-            button.frame = CGRect(x: 0, y: 0, width: 50, height: 25)
+            button.frame = CGRect(x: 0, y: 0, width: 50, height: 30)
             barButton = UIBarButtonItem(customView: button)
             barButton.isEnabled = true
         case .cancel:

@@ -34,7 +34,7 @@ class SaveButton: UIButton {
         let textColor = UIColor.white
         let disabledColor = textColor.withAlphaComponent(0.3)
         
-        guard let customFont = UIFont(name: Constant.CustomFont.bold, size: 14) else {
+        guard let customFont = UIFont(name: Constant.CustomFont.bold, size: 12) else {
             fatalError("""
         Failed to load the "SF-Pro-Display-Bold" font.
         Make sure the font file is included in the project and the font name is spelled correctly.
@@ -51,6 +51,9 @@ class SaveButton: UIButton {
         self.titleLabel?.font = UIFontMetrics.default.scaledFont(for: customFont)
         self.titleLabel?.adjustsFontForContentSizeCategory = true
         self.titleLabel?.adjustsFontSizeToFitWidth = true
+        
+        let topShadow = EdgeShadowLayer(forView: self, edge: .Bottom)
+        self.layer.addSublayer(topShadow)
         
         self.addTarget(self, action: #selector(onPress), for: .touchUpInside)
     }
