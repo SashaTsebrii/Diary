@@ -52,9 +52,6 @@ class SaveButton: UIButton {
         self.titleLabel?.adjustsFontForContentSizeCategory = true
         self.titleLabel?.adjustsFontSizeToFitWidth = true
         
-        let topShadow = EdgeShadowLayer(forView: self, edge: .Bottom)
-        self.layer.addSublayer(topShadow)
-        
         self.addTarget(self, action: #selector(onPress), for: .touchUpInside)
     }
     

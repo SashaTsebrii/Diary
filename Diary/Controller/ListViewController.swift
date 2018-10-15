@@ -60,24 +60,25 @@ class ListViewController: UIViewController {
     
     var tapGesture = UITapGestureRecognizer()
     
+    let settingsButton = UIButton()
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Add setting button.
-        let settingsButton = UIButton()
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
         settingsButton.backgroundColor = UIColor.clear
         settingsButton.setImage(UIImage(named: "Settings"), for: .normal)
         settingsButton.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         settingsButton.imageView?.contentMode = .scaleAspectFit
         settingsButton.addTarget(self, action: #selector(tapSettingsButton), for: .touchUpInside)
-        self.view.addSubview(settingsButton)
+        view.addSubview(settingsButton)
         NSLayoutConstraint(item: settingsButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 30.0).isActive = true
         NSLayoutConstraint(item: settingsButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 30.0).isActive = true
         NSLayoutConstraint(item: settingsButton, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -16.0).isActive = true
-        NSLayoutConstraint(item: settingsButton, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 20.0).isActive = true
+        NSLayoutConstraint(item: settingsButton, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 10.0).isActive = true
         
         // Set placeholder.
         inputTextView.text = "Today I..."
@@ -88,7 +89,7 @@ class ListViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        // Add gesture dfo hide keyboard.
+        // Add gesture fo hide keyboard.
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
@@ -155,8 +156,10 @@ class ListViewController: UIViewController {
     @IBAction func tapResizeButton(_ sender: UIButton) {
         if heightConstraint.constant == 44 {
             heightConstraint.constant = tableView.bounds.height + 44
+            settingsButton.isHidden = true
         } else {
             heightConstraint.constant = 44
+            settingsButton.isHidden = false
         }
     }
     
