@@ -1,5 +1,5 @@
 //
-//  Constant.swift
+//  Constants.swift
 //  Diary
 //
 //  Created by Aleksandr Tsebrii on 7/28/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Constant {
+struct Constants {
     
     // MARK: -
     struct StoryboardIdentifier {
@@ -21,6 +21,8 @@ struct Constant {
     struct SegueIdentifier {
         static let showReadFromList = "showReadFromList"
         static let showSettingsFromList = "showSettingsFromList"
+        static let showProtectionFromSettings = "showProtectionFromSettings"
+        static let showPasswordFromProtection = "showPasswordFromProtection"
     }
     
     // MARK: -

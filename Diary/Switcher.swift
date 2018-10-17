@@ -18,8 +18,8 @@ class Switcher {
         print(status)
         
         let rootViewController = status == true ?
-            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constant.StoryboardIdentifier.listViewController) as! ListViewController :
-            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constant.StoryboardIdentifier.signInViewController) as! SignInViewController
+            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.StoryboardIdentifier.listViewController) as! ListViewController :
+            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.StoryboardIdentifier.signInViewController) as! SignInViewController
         
         navigationController = MainNavigationController(rootViewController: rootViewController)
         

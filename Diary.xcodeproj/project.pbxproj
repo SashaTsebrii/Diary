@@ -15,20 +15,23 @@
 		471DBB22216E72EF00436857 /* ResizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471DBB21216E72EF00436857 /* ResizeButton.swift */; };
 		471DBB24216EB10600436857 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471DBB23216EB10600436857 /* SettingsViewController.swift */; };
 		471DBB26216F2F5000436857 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 471DBB25216F2F5000436857 /* Main.storyboard */; };
-		471DBB28216F518D00436857 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471DBB27216F518D00436857 /* SettingsTableViewController.swift */; };
 		47435BD1216680D0008A9250 /* KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47435BD0216680D0008A9250 /* KeyboardToolbar.swift */; };
 		47435BD3216761E2008A9250 /* SaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47435BD2216761E2008A9250 /* SaveButton.swift */; };
 		47435BD7216A0455008A9250 /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47435BD6216A0455008A9250 /* Switcher.swift */; };
+		474F690521750C9100E757DD /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474F690421750C9100E757DD /* SettingsButton.swift */; };
 		477D8E78216048AA00AE9CD1 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 477D8E76216048A900AE9CD1 /* SF-Pro-Display-Bold.otf */; };
 		477D8E79216048AA00AE9CD1 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 477D8E77216048AA00AE9CD1 /* SF-Pro-Display-Regular.otf */; };
 		477D8E7B21604C8B00AE9CD1 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477D8E7A21604C8B00AE9CD1 /* ReadViewController.swift */; };
 		477D8E83216113BC00AE9CD1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477D8E82216113BC00AE9CD1 /* SignInViewController.swift */; };
 		477D8E872161899D00AE9CD1 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477D8E862161899D00AE9CD1 /* MainNavigationController.swift */; };
+		47808AE621767A840090C860 /* ProtectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47808AE521767A840090C860 /* ProtectionViewController.swift */; };
+		47808AE82176A0120090C860 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47808AE72176A0120090C860 /* SettingsView.swift */; };
+		47808AEA2176A8E10090C860 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47808AE92176A8E10090C860 /* PasswordViewController.swift */; };
 		478A5723215BF905005E4028 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478A5722215BF905005E4028 /* InputTextView.swift */; };
 		47B9B579210CDBE3004E0F32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B9B578210CDBE3004E0F32 /* AppDelegate.swift */; };
 		47B9B580210CDBE3004E0F32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B9B57F210CDBE3004E0F32 /* Assets.xcassets */; };
 		47B9B583210CDBE3004E0F32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47B9B581210CDBE3004E0F32 /* LaunchScreen.storyboard */; };
-		47B9B58B210CE0AB004E0F32 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B9B58A210CE0AB004E0F32 /* Constant.swift */; };
+		47B9B58B210CE0AB004E0F32 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B9B58A210CE0AB004E0F32 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,22 +43,25 @@
 		471DBB21216E72EF00436857 /* ResizeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeButton.swift; sourceTree = "<group>"; };
 		471DBB23216EB10600436857 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		471DBB25216F2F5000436857 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		471DBB27216F518D00436857 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		47435BD0216680D0008A9250 /* KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbar.swift; sourceTree = "<group>"; };
 		47435BD2216761E2008A9250 /* SaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButton.swift; sourceTree = "<group>"; };
 		47435BD6216A0455008A9250 /* Switcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
+		474F690421750C9100E757DD /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		477D8E76216048A900AE9CD1 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		477D8E77216048AA00AE9CD1 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
 		477D8E7A21604C8B00AE9CD1 /* ReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
 		477D8E82216113BC00AE9CD1 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		477D8E862161899D00AE9CD1 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		47808AE521767A840090C860 /* ProtectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionViewController.swift; sourceTree = "<group>"; };
+		47808AE72176A0120090C860 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		47808AE92176A8E10090C860 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		478A5722215BF905005E4028 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		47B9B575210CDBE3004E0F32 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B9B578210CDBE3004E0F32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47B9B57F210CDBE3004E0F32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47B9B582210CDBE3004E0F32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47B9B584210CDBE3004E0F32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		47B9B58A210CE0AB004E0F32 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		47B9B58A210CE0AB004E0F32 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F70329FC93FE120989F4855 /* Pods_Diary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C0E3CC4ACE2CFDD5F9B8B3 /* Pods-Diary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Diary/Pods-Diary.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,7 +99,7 @@
 		477D8E7F2160ED1C00AE9CD1 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				47B9B58A210CE0AB004E0F32 /* Constant.swift */,
+				47B9B58A210CE0AB004E0F32 /* Constants.swift */,
 				4708183F214A973C00B213A2 /* Extension.swift */,
 			);
 			path = Helper;
@@ -107,7 +113,8 @@
 				471348D92131BEF700C10F6F /* ListViewController.swift */,
 				477D8E7A21604C8B00AE9CD1 /* ReadViewController.swift */,
 				471DBB23216EB10600436857 /* SettingsViewController.swift */,
-				471DBB27216F518D00436857 /* SettingsTableViewController.swift */,
+				47808AE521767A840090C860 /* ProtectionViewController.swift */,
+				47808AE92176A8E10090C860 /* PasswordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -120,6 +127,8 @@
 				47435BD0216680D0008A9250 /* KeyboardToolbar.swift */,
 				47435BD2216761E2008A9250 /* SaveButton.swift */,
 				471DBB21216E72EF00436857 /* ResizeButton.swift */,
+				474F690421750C9100E757DD /* SettingsButton.swift */,
+				47808AE72176A0120090C860 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -317,16 +326,19 @@
 				477D8E872161899D00AE9CD1 /* MainNavigationController.swift in Sources */,
 				47192B55215927D400C24E72 /* Diary.xcdatamodeld in Sources */,
 				47435BD3216761E2008A9250 /* SaveButton.swift in Sources */,
+				47808AE82176A0120090C860 /* SettingsView.swift in Sources */,
 				47B9B579210CDBE3004E0F32 /* AppDelegate.swift in Sources */,
 				478A5723215BF905005E4028 /* InputTextView.swift in Sources */,
-				47B9B58B210CE0AB004E0F32 /* Constant.swift in Sources */,
+				47808AEA2176A8E10090C860 /* PasswordViewController.swift in Sources */,
+				47B9B58B210CE0AB004E0F32 /* Constants.swift in Sources */,
 				47081840214A973C00B213A2 /* Extension.swift in Sources */,
 				471DBB22216E72EF00436857 /* ResizeButton.swift in Sources */,
 				471DBB24216EB10600436857 /* SettingsViewController.swift in Sources */,
+				474F690521750C9100E757DD /* SettingsButton.swift in Sources */,
+				47808AE621767A840090C860 /* ProtectionViewController.swift in Sources */,
 				47435BD1216680D0008A9250 /* KeyboardToolbar.swift in Sources */,
 				477D8E83216113BC00AE9CD1 /* SignInViewController.swift in Sources */,
 				47435BD7216A0455008A9250 /* Switcher.swift in Sources */,
-				471DBB28216F518D00436857 /* SettingsTableViewController.swift in Sources */,
 				471348DA2131BEF700C10F6F /* ListViewController.swift in Sources */,
 				477D8E7B21604C8B00AE9CD1 /* ReadViewController.swift in Sources */,
 				4708183E214A89A500B213A2 /* ListTableViewCell.swift in Sources */,

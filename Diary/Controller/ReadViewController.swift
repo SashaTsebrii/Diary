@@ -21,10 +21,6 @@ class ReadViewController: UIViewController {
     
     // MARK: Properties
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     var note: NoteData?
     
     // MARK: Lifecycle

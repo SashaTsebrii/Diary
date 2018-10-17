@@ -27,7 +27,7 @@ class ListViewController: UIViewController {
         didSet {
             tableView.dataSource = self
             tableView.delegate = self
-            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            tableView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
         }
     }
     
@@ -49,10 +49,6 @@ class ListViewController: UIViewController {
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     // MARK: Properties
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -78,7 +74,7 @@ class ListViewController: UIViewController {
         NSLayoutConstraint(item: settingsButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 30.0).isActive = true
         NSLayoutConstraint(item: settingsButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 30.0).isActive = true
         NSLayoutConstraint(item: settingsButton, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -16.0).isActive = true
-        NSLayoutConstraint(item: settingsButton, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 10.0).isActive = true
+        NSLayoutConstraint(item: settingsButton, attribute: .top, relatedBy: .equal, toItem: self.view.safeAreaLayoutGuide, attribute: .top, multiplier: 1.0, constant: 20.0).isActive = true
         
         // Set placeholder.
         inputTextView.text = "Today I..."
@@ -119,11 +115,11 @@ class ListViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
-        if segue.identifier == Constant.SegueIdentifier.showReadFromList {
+        if segue.identifier == Constants.SegueIdentifier.showReadFromList {
             if let readViewController = segue.destination as? ReadViewController {
                 readViewController.note = sender as? NoteData
             }
-        } else if segue.identifier == Constant.SegueIdentifier.showSettingsFromList {
+        } else if segue.identifier == Constants.SegueIdentifier.showSettingsFromList {
             
         }
     }
@@ -131,7 +127,7 @@ class ListViewController: UIViewController {
     // MARK: Selector
     
     @objc func tapSettingsButton(_ sender: UIButton!) {
-        performSegue(withIdentifier: Constant.SegueIdentifier.showSettingsFromList, sender: nil)
+        performSegue(withIdentifier: Constants.SegueIdentifier.showSettingsFromList, sender: nil)
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -250,7 +246,7 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CellIdentifier.listTableViewCell, for: indexPath) as! ListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifier.listTableViewCell, for: indexPath) as! ListTableViewCell
         cell.isFirst = indexPath.row == 0 ? true : false
         if notesArray.count > 0 {
             let notes = notesArray[indexPath.section]
@@ -265,7 +261,7 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let notes = notesArray[indexPath.section]
         let note = notes[indexPath.row]
-        performSegue(withIdentifier: Constant.SegueIdentifier.showReadFromList, sender: note)
+        performSegue(withIdentifier: Constants.SegueIdentifier.showReadFromList, sender: note)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
