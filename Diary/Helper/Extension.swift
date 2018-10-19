@@ -49,7 +49,7 @@ extension String {
 extension Date {
     // Remove time from date.
     func stripTime() -> Date {
-        let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: self)
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: self)
         let date = Calendar.current.date(from: components)
         return date!
     }

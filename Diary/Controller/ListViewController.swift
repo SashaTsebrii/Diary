@@ -175,7 +175,10 @@ class ListViewController: UIViewController {
         do {
             let notes = try context.fetch(NoteData.fetchRequest())
             let notesByDate = Dictionary(grouping: notes as! [NoteData], by: { $0.date!.stripTime() })
-            for (_, value) in notesByDate {
+            
+            let sortedKeys = notesByDate.sorted(by: { $0.0 < $1.0 })
+            
+            for (_, value) in sortedKeys {
                 self.notesArray.insert(value, at: notesArray.count)
             }
             self.tableView.reloadData()
