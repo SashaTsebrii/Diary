@@ -174,10 +174,13 @@ class ListViewController: UIViewController {
         
         do {
             let notes = try context.fetch(NoteData.fetchRequest())
+            // Sorted notes by day and strip teme and minutes.
             let notesByDate = Dictionary(grouping: notes as! [NoteData], by: { $0.date!.stripTime() })
             
+            // Sorted notes by date.
             let sortedKeys = notesByDate.sorted(by: { $0.0 < $1.0 })
             
+            // Create array with notes array from dictionary.
             for (_, value) in sortedKeys {
                 self.notesArray.insert(value, at: notesArray.count)
             }
