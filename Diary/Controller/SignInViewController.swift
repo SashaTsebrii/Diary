@@ -15,6 +15,10 @@ class SignInViewController: UIViewController {
 
     @IBOutlet weak var signInButton: GIDSignInButton!
     
+    // MARK: Properties
+    
+    let userDefaults = UserDefaults.standard
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -63,7 +67,9 @@ extension SignInViewController: GIDSignInDelegate {
              let email = user.profile.email
              */
             // Change view controller after success sign in.
-            UserDefaults.standard.set(true, forKey: "status")
+            
+            userDefaults.set(true, forKey: Constants.kUserDefaults.isSignIn)
+            userDefaults.synchronize()
             Switcher.updateRootVC()
         }
     }
@@ -72,7 +78,9 @@ extension SignInViewController: GIDSignInDelegate {
               withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
         // Change view controller after success sign out.
-        UserDefaults.standard.set(false, forKey: "status")
+        
+        userDefaults.set(false, forKey: Constants.kUserDefaults.isSignIn)
+        userDefaults.synchronize()
         Switcher.updateRootVC()
     }
 }

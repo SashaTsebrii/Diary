@@ -26,7 +26,9 @@
 		477D8E872161899D00AE9CD1 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477D8E862161899D00AE9CD1 /* MainNavigationController.swift */; };
 		47808AE621767A840090C860 /* ProtectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47808AE521767A840090C860 /* ProtectionViewController.swift */; };
 		47808AE82176A0120090C860 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47808AE72176A0120090C860 /* SettingsView.swift */; };
-		47808AEA2176A8E10090C860 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47808AE92176A8E10090C860 /* PasswordViewController.swift */; };
+		47808AEA2176A8E10090C860 /* EnterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47808AE92176A8E10090C860 /* EnterPasswordViewController.swift */; };
+		47808AEC217A1C360090C860 /* ReenterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47808AEB217A1C360090C860 /* ReenterPasswordViewController.swift */; };
+		47808AEE217A218F0090C860 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47808AED217A218F0090C860 /* PasswordViewController.swift */; };
 		478A5723215BF905005E4028 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478A5722215BF905005E4028 /* InputTextView.swift */; };
 		47B9B579210CDBE3004E0F32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B9B578210CDBE3004E0F32 /* AppDelegate.swift */; };
 		47B9B580210CDBE3004E0F32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B9B57F210CDBE3004E0F32 /* Assets.xcassets */; };
@@ -54,7 +56,10 @@
 		477D8E862161899D00AE9CD1 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		47808AE521767A840090C860 /* ProtectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionViewController.swift; sourceTree = "<group>"; };
 		47808AE72176A0120090C860 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		47808AE92176A8E10090C860 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		47808AE92176A8E10090C860 /* EnterPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewController.swift; sourceTree = "<group>"; };
+		47808AEB217A1C360090C860 /* ReenterPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReenterPasswordViewController.swift; sourceTree = "<group>"; };
+		47808AED217A218F0090C860 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		47808AEF217A5C760090C860 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		478A5722215BF905005E4028 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		47B9B575210CDBE3004E0F32 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B9B578210CDBE3004E0F32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +119,9 @@
 				477D8E7A21604C8B00AE9CD1 /* ReadViewController.swift */,
 				471DBB23216EB10600436857 /* SettingsViewController.swift */,
 				47808AE521767A840090C860 /* ProtectionViewController.swift */,
-				47808AE92176A8E10090C860 /* PasswordViewController.swift */,
+				47808AED217A218F0090C860 /* PasswordViewController.swift */,
+				47808AE92176A8E10090C860 /* EnterPasswordViewController.swift */,
+				47808AEB217A1C360090C860 /* ReenterPasswordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -180,6 +187,7 @@
 		C76F3E41875D624721C372D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				47808AEF217A5C760090C860 /* LocalAuthentication.framework */,
 				7F70329FC93FE120989F4855 /* Pods_Diary.framework */,
 			);
 			name = Frameworks;
@@ -329,7 +337,7 @@
 				47808AE82176A0120090C860 /* SettingsView.swift in Sources */,
 				47B9B579210CDBE3004E0F32 /* AppDelegate.swift in Sources */,
 				478A5723215BF905005E4028 /* InputTextView.swift in Sources */,
-				47808AEA2176A8E10090C860 /* PasswordViewController.swift in Sources */,
+				47808AEA2176A8E10090C860 /* EnterPasswordViewController.swift in Sources */,
 				47B9B58B210CE0AB004E0F32 /* Constants.swift in Sources */,
 				47081840214A973C00B213A2 /* Extension.swift in Sources */,
 				471DBB22216E72EF00436857 /* ResizeButton.swift in Sources */,
@@ -340,6 +348,8 @@
 				477D8E83216113BC00AE9CD1 /* SignInViewController.swift in Sources */,
 				47435BD7216A0455008A9250 /* Switcher.swift in Sources */,
 				471348DA2131BEF700C10F6F /* ListViewController.swift in Sources */,
+				47808AEE217A218F0090C860 /* PasswordViewController.swift in Sources */,
+				47808AEC217A1C360090C860 /* ReenterPasswordViewController.swift in Sources */,
 				477D8E7B21604C8B00AE9CD1 /* ReadViewController.swift in Sources */,
 				4708183E214A89A500B213A2 /* ListTableViewCell.swift in Sources */,
 			);

@@ -12,12 +12,12 @@ class Switcher {
     
     static func updateRootVC() {
         
-        let status = UserDefaults.standard.bool(forKey: "status")
+        let isSignIn = UserDefaults.standard.bool(forKey: Constants.kUserDefaults.isSignIn)
+        print(isSignIn)
+        
         var navigationController: UINavigationController?
         
-        print(status)
-        
-        let rootViewController = status == true ?
+        let rootViewController = isSignIn == true ?
             UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.StoryboardIdentifier.listViewController) as! ListViewController :
             UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.StoryboardIdentifier.signInViewController) as! SignInViewController
         

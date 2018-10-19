@@ -238,7 +238,6 @@
                         <outlet property="maskView" destination="waE-cJ-7Nz" id="Xlv-aI-ltc"/>
                         <outlet property="resizeButton" destination="igD-b9-Krb" id="xhW-Bl-cuf"/>
                         <outlet property="tableView" destination="dly-lE-Ads" id="H3T-Jp-abD"/>
-                        <segue destination="Pco-Ef-xmZ" kind="show" identifier="showReadFromList" id="TXV-EN-9O9"/>
                         <segue destination="h7w-jW-1QK" kind="show" identifier="showSettingsFromList" id="MQx-Nq-S9J"/>
                     </connections>
                 </viewController>
@@ -260,7 +259,7 @@
                                     <constraint firstAttribute="height" constant="20" id="KUD-xV-GGP"/>
                                     <constraint firstAttribute="width" constant="20" id="MhT-dp-zI5"/>
                                 </constraints>
-                                <state key="normal" image="Close"/>
+                                <state key="normal" image="Back"/>
                                 <connections>
                                     <action selector="tapCloseButton:" destination="h7w-jW-1QK" eventType="touchUpInside" id="S7S-no-dVq"/>
                                 </connections>
@@ -286,9 +285,6 @@
                                         <state key="normal" title="PIN protection" image="Arrow">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isAddButton" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="tapPinButton:" destination="h7w-jW-1QK" eventType="touchUpInside" id="XTz-Hm-4LQ"/>
                                         </connections>
@@ -397,7 +393,7 @@
         <!--Read View Controller-->
         <scene sceneID="0P0-Vq-EXa">
             <objects>
-                <viewController id="Pco-Ef-xmZ" customClass="ReadViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="readViewController" id="Pco-Ef-xmZ" customClass="ReadViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VHo-hs-SYv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -455,7 +451,7 @@
         <!--Protection View Controller-->
         <scene sceneID="qMq-U0-m7X">
             <objects>
-                <viewController storyboardIdentifier="passwordViewController" id="4od-br-cnm" customClass="ProtectionViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4od-br-cnm" customClass="ProtectionViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xjq-Ou-mmm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -466,7 +462,10 @@
                                     <constraint firstAttribute="width" constant="20" id="Q4y-aI-rZ1"/>
                                     <constraint firstAttribute="height" constant="20" id="VYo-ZH-Tz7"/>
                                 </constraints>
-                                <state key="normal" image="Close"/>
+                                <state key="normal" image="Back"/>
+                                <connections>
+                                    <action selector="tapBackButton:" destination="4od-br-cnm" eventType="touchUpInside" id="ktV-Xe-Dz2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN protection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iay-QT-Zof">
                                 <rect key="frame" x="16" y="56" width="156" height="29"/>
@@ -490,6 +489,9 @@
                                         <rect key="frame" x="294" y="17.5" width="51" height="31"/>
                                         <color key="tintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="onTintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="tapPasswordSwitch:" destination="4od-br-cnm" eventType="valueChanged" id="Pr6-xh-KR3"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -551,7 +553,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="tapNewNutton:" destination="4od-br-cnm" eventType="touchUpInside" id="1Jt-DJ-f0d"/>
+                                            <action selector="tapSetButton:" destination="4od-br-cnm" eventType="touchUpInside" id="Ezd-FY-te5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -584,24 +586,27 @@
                         <viewLayoutGuide key="safeArea" id="CPv-fb-z3o"/>
                     </view>
                     <connections>
-                        <outlet property="touchOrFaceLabel" destination="U31-4z-l9b" id="cWP-nZ-RZ4"/>
-                        <segue destination="c2R-sm-bEH" kind="show" identifier="showPasswordFromProtection" id="e1g-Pe-Yg4"/>
+                        <outlet property="biometricLabel" destination="U31-4z-l9b" id="BXf-41-fvt"/>
+                        <outlet property="biometricSwitch" destination="flX-5W-Ldu" id="8hn-2M-vde"/>
+                        <outlet property="passwordSwitch" destination="C7M-wD-aWw" id="QDD-ZF-MHc"/>
+                        <outlet property="setButton" destination="dL5-Ki-kHD" id="pAH-Rc-Pax"/>
+                        <segue destination="c2R-sm-bEH" kind="show" identifier="showEnterPasswordFromProtection" id="e1g-Pe-Yg4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SN2-Ek-5jm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1282" y="842"/>
+            <point key="canvasLocation" x="1280.8" y="841.52923538230891"/>
         </scene>
-        <!--Password View Controller-->
+        <!--Enter Password View Controller-->
         <scene sceneID="oDN-iW-F9K">
             <objects>
-                <viewController id="c2R-sm-bEH" customClass="PasswordViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="enterPasswordViewController" id="c2R-sm-bEH" customClass="EnterPasswordViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wyi-J0-gjX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your PIN code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJQ-ne-4Fm">
-                                <rect key="frame" x="117.5" y="170" width="140.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your new PIN code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJQ-ne-4Fm">
+                                <rect key="frame" x="101" y="170" width="173.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -617,7 +622,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="⚬" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="deh-yv-Vtl">
                                         <rect key="frame" x="30" y="0.0" width="30" height="30"/>
@@ -627,7 +632,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="⚬" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F1r-II-tQp">
                                         <rect key="frame" x="60" y="0.0" width="30" height="30"/>
@@ -637,7 +642,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="⚬" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hac-FW-eal">
                                         <rect key="frame" x="90" y="0.0" width="30" height="30"/>
@@ -647,7 +652,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -655,30 +660,153 @@
                                     <constraint firstAttribute="height" constant="30" id="dpy-lX-idl"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9O-Dt-tf2">
+                                <rect key="frame" x="16" y="28" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="7Ku-He-dbu"/>
+                                    <constraint firstAttribute="width" constant="20" id="Hmd-US-XW5"/>
+                                </constraints>
+                                <state key="normal" image="Back"/>
+                                <connections>
+                                    <action selector="tapBackButton:" destination="c2R-sm-bEH" eventType="touchUpInside" id="DKt-5o-KXB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="p9O-Dt-tf2" firstAttribute="top" secondItem="1VN-pX-vVc" secondAttribute="top" constant="8" id="1vH-fx-ceT"/>
                             <constraint firstItem="rNW-Pb-WC0" firstAttribute="centerX" secondItem="1VN-pX-vVc" secondAttribute="centerX" id="Izs-dj-emy"/>
                             <constraint firstItem="fJQ-ne-4Fm" firstAttribute="top" secondItem="1VN-pX-vVc" secondAttribute="top" constant="150" id="Tpw-Gr-rE6"/>
+                            <constraint firstItem="p9O-Dt-tf2" firstAttribute="leading" secondItem="1VN-pX-vVc" secondAttribute="leading" constant="16" id="Zxo-R7-67F"/>
                             <constraint firstItem="rNW-Pb-WC0" firstAttribute="top" secondItem="fJQ-ne-4Fm" secondAttribute="bottom" constant="32" id="bLx-U4-wMj"/>
                             <constraint firstItem="fJQ-ne-4Fm" firstAttribute="centerX" secondItem="1VN-pX-vVc" secondAttribute="centerX" id="qyn-5m-mWT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1VN-pX-vVc"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="p9O-Dt-tf2" id="C7e-sg-c1G"/>
                         <outlet property="textField1" destination="1E4-nI-kBA" id="Xj5-sW-ASo"/>
                         <outlet property="textField2" destination="deh-yv-Vtl" id="euz-lF-ZbO"/>
                         <outlet property="textField3" destination="F1r-II-tQp" id="lei-zx-Lx4"/>
                         <outlet property="textField4" destination="hac-FW-eal" id="oDe-rM-ALK"/>
+                        <outlet property="textLabel" destination="fJQ-ne-4Fm" id="xqa-0c-peM"/>
+                        <outletCollection property="textFields" destination="1E4-nI-kBA" collectionClass="NSMutableArray" id="HAs-Jp-gc9"/>
+                        <outletCollection property="textFields" destination="deh-yv-Vtl" collectionClass="NSMutableArray" id="Duq-uX-OoO"/>
+                        <outletCollection property="textFields" destination="F1r-II-tQp" collectionClass="NSMutableArray" id="7uj-GY-Q8k"/>
+                        <outletCollection property="textFields" destination="hac-FW-eal" collectionClass="NSMutableArray" id="HUY-7w-3ao"/>
+                        <segue destination="WGr-iG-07G" kind="show" identifier="showReenterPasswordFromEnterPassword" id="Mwc-Im-7sS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AcQ-Lo-nyx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2365.5999999999999" y="841.52923538230891"/>
+            <point key="canvasLocation" x="2394" y="842"/>
+        </scene>
+        <!--Reenter Password View Controller-->
+        <scene sceneID="EXa-aV-VH2">
+            <objects>
+                <viewController id="WGr-iG-07G" customClass="ReenterPasswordViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sS3-Wo-Xk0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your new PIN code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPA-XF-mJ6">
+                                <rect key="frame" x="101" y="170" width="173.5" height="20.5"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tY-lb-b2t">
+                                <rect key="frame" x="127.5" y="222.5" width="120" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="⚬" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dg7-56-Rp9">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="QrE-cn-Icv"/>
+                                            <constraint firstAttribute="width" constant="30" id="xWH-Db-x93"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="⚬" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b0x-zJ-lLz">
+                                        <rect key="frame" x="30" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="BEx-kX-CHi"/>
+                                            <constraint firstAttribute="width" constant="30" id="xfs-Kz-een"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="⚬" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="806-YJ-NLq">
+                                        <rect key="frame" x="60" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="FBh-K4-tw3"/>
+                                            <constraint firstAttribute="width" constant="30" id="YGl-5K-OCT"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="⚬" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1q5-zJ-r7b">
+                                        <rect key="frame" x="90" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="jc9-Jt-Eg4"/>
+                                            <constraint firstAttribute="width" constant="30" id="lpo-Zg-QcE"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="am7-Wl-iMT"/>
+                                    <constraint firstAttribute="height" constant="30" id="rQd-xh-vdi"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxW-fT-IMf">
+                                <rect key="frame" x="16" y="28" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="G9I-F4-eV3"/>
+                                    <constraint firstAttribute="height" constant="20" id="b36-ZY-nx5"/>
+                                </constraints>
+                                <state key="normal" image="Back"/>
+                                <connections>
+                                    <action selector="tapBackButton:" destination="WGr-iG-07G" eventType="touchUpInside" id="kUL-M9-vP9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oPA-XF-mJ6" firstAttribute="centerX" secondItem="wRg-QT-h09" secondAttribute="centerX" id="5eJ-f3-18g"/>
+                            <constraint firstItem="2tY-lb-b2t" firstAttribute="centerX" secondItem="wRg-QT-h09" secondAttribute="centerX" id="KgS-rj-jwe"/>
+                            <constraint firstItem="rxW-fT-IMf" firstAttribute="top" secondItem="wRg-QT-h09" secondAttribute="top" constant="8" id="ihs-VD-8Iw"/>
+                            <constraint firstItem="oPA-XF-mJ6" firstAttribute="top" secondItem="wRg-QT-h09" secondAttribute="top" constant="150" id="jfs-TK-cT7"/>
+                            <constraint firstItem="2tY-lb-b2t" firstAttribute="top" secondItem="oPA-XF-mJ6" secondAttribute="bottom" constant="32" id="neI-Lb-5bu"/>
+                            <constraint firstItem="rxW-fT-IMf" firstAttribute="leading" secondItem="wRg-QT-h09" secondAttribute="leading" constant="16" id="wLj-q7-ruG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wRg-QT-h09"/>
+                    </view>
+                    <connections>
+                        <outlet property="textField1" destination="Dg7-56-Rp9" id="Bi4-ll-xRs"/>
+                        <outlet property="textField2" destination="b0x-zJ-lLz" id="u9b-te-Fyz"/>
+                        <outlet property="textField3" destination="806-YJ-NLq" id="pt2-bA-SrV"/>
+                        <outlet property="textField4" destination="1q5-zJ-r7b" id="fTU-v5-1Ti"/>
+                        <outlet property="textLabel" destination="oPA-XF-mJ6" id="qLC-a2-5YP"/>
+                        <outletCollection property="textFields" destination="Dg7-56-Rp9" collectionClass="NSMutableArray" id="NMt-33-zJB"/>
+                        <outletCollection property="textFields" destination="b0x-zJ-lLz" collectionClass="NSMutableArray" id="0Xm-YN-Syd"/>
+                        <outletCollection property="textFields" destination="806-YJ-NLq" collectionClass="NSMutableArray" id="ch9-Lq-Up4"/>
+                        <outletCollection property="textFields" destination="1q5-zJ-r7b" collectionClass="NSMutableArray" id="iez-Sk-tlU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wpt-UW-qYE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3370" y="842"/>
         </scene>
     </scenes>
     <resources>
         <image name="Arrow" width="8" height="13"/>
+        <image name="Back" width="8" height="13"/>
         <image name="Close" width="50" height="50"/>
         <image name="Increase" width="16" height="16"/>
     </resources>

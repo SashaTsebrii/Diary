@@ -44,7 +44,7 @@ class ReadViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func tapCloseButton(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
 }

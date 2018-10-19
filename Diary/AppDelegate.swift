@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GIDSignIn.sharedInstance().clientID = "560260818064-j58gav8r63o82h639dijbq0vrdq0929l.apps.googleusercontent.com"
         
         // Uncomment line bellow for allow use sign menthod.
-        UserDefaults.standard.set(true, forKey: "status")
+        UserDefaults.standard.set(true, forKey: Constants.kUserDefaults.isSignIn)
         // Check user is sign in or sign out.
         Switcher.updateRootVC()
         

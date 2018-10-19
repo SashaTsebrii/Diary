@@ -19,5 +19,13 @@ import UIKit
             titleEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: (imageView?.frame.width)!)
         }
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setTitleColor(UIColor.black, for: .normal)
+        setTitleColor(UIColor.lightGray, for: .disabled)
+        
+    }
 
 }

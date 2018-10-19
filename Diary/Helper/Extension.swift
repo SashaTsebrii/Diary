@@ -258,3 +258,13 @@ public extension UIDevice {
     }()
     
 }
+
+
+// MARK: -
+extension UINavigationController {
+    func popToViewController(ofClass: AnyClass, animated: Bool = true) {
+        if let viewController = viewControllers.filter({$0.isKind(of: ofClass)}).last {
+            popToViewController(viewController, animated: animated)
+        }
+    }
+}

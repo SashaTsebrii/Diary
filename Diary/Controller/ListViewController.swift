@@ -63,6 +63,14 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        UserDefaults.standard.set(false, forKey: Constants.kUserDefaults.isPasswordSet)
+        let isPasswordSet = UserDefaults.standard.bool(forKey: Constants.kUserDefaults.isPasswordSet)
+        if isPasswordSet == true {
+            let passwordViewController = storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIdentifier.enterPasswordViewController) as! EnterPasswordViewController
+            passwordViewController.passwordType = .login
+            present(passwordViewController, animated: true, completion: nil)
+        }
+        
         // Add setting button.
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
         settingsButton.backgroundColor = UIColor.clear
@@ -114,12 +122,7 @@ class ListViewController: UIViewController {
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
-        if segue.identifier == Constants.SegueIdentifier.showReadFromList {
-            if let readViewController = segue.destination as? ReadViewController {
-                readViewController.note = sender as? NoteData
-            }
-        } else if segue.identifier == Constants.SegueIdentifier.showSettingsFromList {
+        if segue.identifier == Constants.SegueIdentifier.showSettingsFromList {
             
         }
     }
@@ -261,7 +264,11 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let notes = notesArray[indexPath.section]
         let note = notes[indexPath.row]
-        performSegue(withIdentifier: Constants.SegueIdentifier.showReadFromList, sender: note)
+        
+        let readViewController = storyboard?.instantiateViewController(withIdentifier: Constants.StoryboardIdentifier.readViewController) as! ReadViewController
+        readViewController.note = note
+        present(readViewController, animated: true, completion: nil)
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
