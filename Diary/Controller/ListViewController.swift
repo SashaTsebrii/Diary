@@ -13,21 +13,12 @@ class ListViewController: UIViewController {
     
     // MARK: Outlets
     
-    @IBOutlet weak var maskView: UIView! {
-        didSet {
-            let gradient = CAGradientLayer()
-            gradient.frame = maskView.bounds
-            gradient.colors = [UIColor.clear.cgColor, UIColor.clear.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.white.cgColor]
-            gradient.locations = [0, 0.08, 0.12, 0.9, 1]
-            maskView.layer.mask = gradient
-        }
-    }
+    @IBOutlet weak var maskView: UIView!
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
             tableView.delegate = self
-            tableView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
         }
     }
     
@@ -62,6 +53,9 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setup tableView edge instets.
+        tableView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
         
 //        UserDefaults.standard.set(false, forKey: Constants.kUserDefaults.isPasswordSet)
         let isPasswordSet = UserDefaults.standard.bool(forKey: Constants.kUserDefaults.isPasswordSet)
@@ -113,6 +107,16 @@ class ListViewController: UIViewController {
         
         // Load data from core data.
         setupData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        // Setup gradient for maskView.
+        let gradient = CAGradientLayer()
+        gradient.frame = view.frame
+        gradient.colors = [UIColor.clear.cgColor, UIColor.clear.cgColor, UIColor.white.cgColor, UIColor.white.cgColor]
+        gradient.locations = [0, 0.08, 0.12, 1]
+        maskView.layer.mask = gradient
     }
     
     override func didReceiveMemoryWarning() {
