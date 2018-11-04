@@ -361,6 +361,38 @@
                                     <constraint firstAttribute="trailing" secondItem="DDA-0f-Pev" secondAttribute="trailing" id="raT-w4-13l"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rjx-GD-oyk" customClass="SettingsView" customModule="Diary" customModuleProvider="target">
+                                <rect key="frame" x="16" y="581" width="359" height="66"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBz-zp-aiK" customClass="SettingsButton" customModule="Diary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="66"/>
+                                        <accessibility key="accessibilityConfiguration" label="Test">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="66" id="uJ7-Q8-Yio"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="17"/>
+                                        <state key="normal" title="Log Out" image="Arrow">
+                                            <color key="titleColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tapLogoOutButton:" destination="h7w-jW-1QK" eventType="touchUpInside" id="EgN-To-pUg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="72N-Nq-hdw"/>
+                                    <constraint firstItem="VBz-zp-aiK" firstAttribute="leading" secondItem="Rjx-GD-oyk" secondAttribute="leading" id="Dty-tH-VXX"/>
+                                    <constraint firstAttribute="trailing" secondItem="VBz-zp-aiK" secondAttribute="trailing" id="Prg-fk-up0"/>
+                                    <constraint firstItem="VBz-zp-aiK" firstAttribute="top" secondItem="Rjx-GD-oyk" secondAttribute="top" id="fs8-1U-vso"/>
+                                    <constraint firstAttribute="bottom" secondItem="VBz-zp-aiK" secondAttribute="bottom" id="pZ8-Jg-Fiu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isTopLine" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -368,15 +400,18 @@
                             <constraint firstItem="GTC-o0-YNW" firstAttribute="leading" secondItem="F4m-CF-ihO" secondAttribute="leading" constant="16" id="KON-yF-2x8"/>
                             <constraint firstItem="F4m-CF-ihO" firstAttribute="trailing" secondItem="OLf-l8-qch" secondAttribute="trailing" id="Qne-H0-9YP"/>
                             <constraint firstItem="F4m-CF-ihO" firstAttribute="trailing" secondItem="SPY-CR-FLa" secondAttribute="trailing" id="T9M-os-zya"/>
+                            <constraint firstItem="F4m-CF-ihO" firstAttribute="trailing" secondItem="Rjx-GD-oyk" secondAttribute="trailing" id="Z97-qA-WfS"/>
                             <constraint firstItem="Wen-Ay-Wv3" firstAttribute="leading" secondItem="F4m-CF-ihO" secondAttribute="leading" constant="16" id="dCy-3i-M2L"/>
                             <constraint firstItem="SPY-CR-FLa" firstAttribute="leading" secondItem="F4m-CF-ihO" secondAttribute="leading" constant="16" id="dZf-PQ-9d2"/>
                             <constraint firstItem="OLf-l8-qch" firstAttribute="leading" secondItem="F4m-CF-ihO" secondAttribute="leading" constant="16" id="f4D-4x-tsO"/>
+                            <constraint firstItem="Rjx-GD-oyk" firstAttribute="leading" secondItem="F4m-CF-ihO" secondAttribute="leading" constant="16" id="h0j-wF-2N1"/>
                             <constraint firstItem="GTC-o0-YNW" firstAttribute="top" secondItem="Wen-Ay-Wv3" secondAttribute="bottom" constant="8" id="jY0-Se-NF6"/>
                             <constraint firstItem="F4m-CF-ihO" firstAttribute="trailing" secondItem="GTC-o0-YNW" secondAttribute="trailing" id="lM4-dB-QVD"/>
                             <constraint firstItem="OLf-l8-qch" firstAttribute="top" secondItem="SPY-CR-FLa" secondAttribute="bottom" id="mdv-W8-xu9"/>
                             <constraint firstItem="SPY-CR-FLa" firstAttribute="top" secondItem="GTC-o0-YNW" secondAttribute="bottom" id="nFq-eW-pR8"/>
                             <constraint firstItem="nLw-Fz-OW9" firstAttribute="leading" secondItem="F4m-CF-ihO" secondAttribute="leading" constant="16" id="nMv-ny-n2o"/>
                             <constraint firstItem="nLw-Fz-OW9" firstAttribute="top" secondItem="F4m-CF-ihO" secondAttribute="top" constant="8" id="oAr-7a-lXf"/>
+                            <constraint firstItem="F4m-CF-ihO" firstAttribute="bottom" secondItem="Rjx-GD-oyk" secondAttribute="bottom" constant="20" id="zxu-Yq-lIb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="F4m-CF-ihO"/>
                     </view>

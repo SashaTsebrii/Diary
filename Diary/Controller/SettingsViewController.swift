@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import GoogleSignIn
 
 class SettingsViewController: UIViewController {
     
@@ -55,6 +56,11 @@ class SettingsViewController: UIViewController {
     
     @IBAction func tapSuggestButton(_ sender: SettingsButton) {
         sendEmail(withSubject: "Suggest a feature")
+    }
+    
+    @IBAction func tapLogoOutButton(_ sender: SettingsButton) {
+        // FIXME: Need to fix sing out method.
+        GIDSignIn.sharedInstance().signOut()
     }
     
 }
