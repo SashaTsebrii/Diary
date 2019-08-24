@@ -12,7 +12,7 @@ import UIKit
     
     // MARK: Variables
     
-    private struct SettingsButtonConstants {
+    private struct ViewConstants {
         static let lineWidth: CGFloat = 2.0
     }
     
@@ -31,7 +31,7 @@ import UIKit
         let linePath = UIBezierPath()
         
         // Set the path's line width to the height of the stroke.
-        linePath.lineWidth = SettingsButtonConstants.lineWidth
+        linePath.lineWidth = ViewConstants.lineWidth
         
         // Move the initial point of the path to the start of the horizontal stroke.
         linePath.move(to: CGPoint(
